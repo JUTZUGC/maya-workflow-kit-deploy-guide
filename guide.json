@@ -1,0 +1,107 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "mayakit",
+    "nameCn": "Maya Workflow Kit",
+    "repoName": "maya-workflow-kit-deploy-guide",
+    "oneLiner": "给从 Maya 转过来的人：热盒、通道盒、属性编辑器、菜单组与快捷键，在 Blender 里原样还原",
+    "officialRepo": "https://github.com/5hyuns/maya-workflow-kit-for-blender",
+    "officialDocs": "https://github.com/5hyuns/maya-workflow-kit-for-blender#installation",
+    "stars": "426",
+    "license": "GPL-3.0",
+    "highlights": [
+      "热盒与标记菜单：按住空格就出来",
+      "通道盒与属性编辑器：改参数不用翻面板",
+      "菜单组与工具架：Maya 的布局习惯",
+      "导航与选择：Maya 式操作方式",
+      "场景概念：冻结变换、删除历史、组、厘米单位",
+      "一键切换：随时回到原生 Blender"
+    ],
+    "mcpSupport": "项目本身不含 MCP；本仓库的 MCP 只提供安装步骤、版本对应与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-31",
+    "verification": [
+      [
+        "README 确认 Blender 5.2 支持范围与从磁盘安装方式",
+        "已核对 2026-10-31"
+      ],
+      [
+        "Release v0.7.0 的 zip 资产与 SHA256 摘要已核对",
+        "已核对 2026-10-31"
+      ],
+      [
+        "未实测安装与 Maya 模式切换",
+        "说明 2026-10-31"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-10-31"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-31"
+      ]
+    ],
+    "deploy": {
+      "type": "binary",
+      "steps": [
+        "curl -fL -o maya-workflow-kit-0.7.0.zip https://github.com/5hyuns/maya-workflow-kit-for-blender/releases/download/v0.7.0/maya-workflow-kit-0.7.0.zip",
+        "echo \"a38b31af2c12bac7dc51afe0389d4621a5178d1421c1ea9f764a7892d38373bc  maya-workflow-kit-0.7.0.zip\" | sha256sum -c -",
+        "echo \"校验通过：Blender 里 编辑 > 偏好设置 > 获取扩展 > 右上角菜单 > 从磁盘安装，选中这个 zip\""
+      ],
+      "stepsPs": [
+        "curl.exe -fL -o maya-workflow-kit-0.7.0.zip https://github.com/5hyuns/maya-workflow-kit-for-blender/releases/download/v0.7.0/maya-workflow-kit-0.7.0.zip",
+        "$h=(Get-FileHash .\\maya-workflow-kit-0.7.0.zip -Algorithm SHA256).Hash.ToLower()",
+        "if ($h -ne \"a38b31af2c12bac7dc51afe0389d4621a5178d1421c1ea9f764a7892d38373bc\") { throw \"SHA256 校验失败\" }",
+        "Write-Host \"校验通过：Blender 里 编辑 > 偏好设置 > 获取扩展 > 从磁盘安装，选中这个 zip\""
+      ],
+      "source": "https://github.com/5hyuns/maya-workflow-kit-for-blender/releases/tag/v0.7.0"
+    },
+    "pitfalls": [
+      "装了没反应：确认扩展已启用，并点开了 Maya 模式",
+      "Blender 版本不符：5.2 用 0.7.0，4.5 必须停在 0.6.2",
+      "热盒不出来：检查快捷键是否被其它插件占用",
+      "通道盒不显示：先选中对象，再确认处于 Maya 模式",
+      "切换后菜单异常：切回 Blender 再切一次，仍异常就重装",
+      "升级后设置丢失：正常升级不会丢，若丢失先查偏好设置里的扩展数据"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/maya-workflow-kit-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/maya-workflow-kit-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "Maya Workflow Kit",
+    "Maya 工作流 Blender",
+    "Blender 插件 Maya",
+    "热盒 通道盒 Blender",
+    "Maya 转 Blender",
+    "maya workflow kit 教程",
+    "Blender 扩展 安装",
+    "Maya 快捷键 Blender",
+    "maya workflow kit deploy guide",
+    "3D 建模 迁移"
+  ],
+  "topics": [
+    "blender",
+    "maya",
+    "addon",
+    "3d-modeling",
+    "workflow",
+    "maya-workflow-kit"
+  ]
+}

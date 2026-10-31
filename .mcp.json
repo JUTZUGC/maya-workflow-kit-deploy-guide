@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "mayakit-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
